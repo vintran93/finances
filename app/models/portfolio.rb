@@ -1,5 +1,6 @@
 class Portfolio < ApplicationRecord
-    validates :user_id, uniqueness: true
+    validates :name, :presence => true, :uniqueness => {:scope => :user_id}
+    
     
     has_many :currencies
 	has_many :users, through: :currencies
