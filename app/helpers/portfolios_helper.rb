@@ -3,12 +3,13 @@ module PortfoliosHelper
         currency.portfolio.nil? ? link_to("Add Portfolio", edit_currency_path(currency)) : link_to(currency.portfolio_name, portfolio_path(currency.portfolio))
     end
   
-    # Display dropdown of artists, with name if editing through nested
+    # Display dropdown of portfolios, with name if editing through nested
     def portfolio_select(currency, path)
       if currency.portfolio && path == "nested"
         hidden_field_tag "currency[portfolio_id]", currency.portfolio_id
       else
-        select_tag "currency[portfolio_id]", options_from_collection_for_select(Portfolio.all, :id, :name)
+        select_tag "currency[portfolio_id]", options_from_collection_for_select(Portfolio.where(user_id: current_user.id), :id, :name)
+        
       end
     end
   
