@@ -27,7 +27,7 @@ class HomeController < ApplicationController
       @response = Net::HTTP.get(@uri)
       @search_coin = JSON.parse(@response)
       @stockapi = StockQuote::Stock.new(api_key: 'pk_ca9afb4b10db43f78192ce4764e34647')
-      if params[:symbol] == "" 
+      if params[:symbol] == ""
         @blank = "Please enter a stock symbol to search."
       elsif params[:symbol]
         @stock = StockQuote::Stock.quote(params[:symbol])
