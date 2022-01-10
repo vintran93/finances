@@ -28,13 +28,13 @@ class HomeController < ApplicationController
       @search_coin = JSON.parse(@response)
       @stockapi = StockQuote::Stock.new(api_key: 'pk_ca9afb4b10db43f78192ce4764e34647')
       if params[:symbol] == "" 
-        @blank =  "Please enter a stock symbol to search."
+        @blank = "Please enter a stock symbol to search."
       elsif params[:symbol]
         @stock = StockQuote::Stock.quote(params[:symbol])
-        if !@stock 
-          @error = "That stock does not exist."
-        end
+      else
+        @error = "That stock does not exist."
       end
+      
 
 
       @symbol = params[:sym] 

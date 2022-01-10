@@ -1,12 +1,14 @@
+
 <h2><strong> All Currencies</strong> </h2>
 <ol>
 <% @currencies.each do |currency| %> 
-  <li><%= display_portfolio(currency) %> - <%= link_to currency.name, currency_path(currency) %> = <%=  number_to_currency(currency.price_per * currency.amount_owned) %> | <%= currency.created_at.in_time_zone("Central Time (US & Canada)").strftime("%B %d, %Y %I:%M %p") %></li><br> 
+  <li><%= display_portfolio(currency) %> - <%= link_to currency.name, currency_path(currency) %> = <%=  (number_to_currency(currency.price_per * currency.amount_owned)) %> | <%= currency.created_at.in_time_zone("Central Time (US & Canada)").strftime("%B %d, %Y %I:%M %p") %></li><br> 
 <% end %> 
 
 </ol>
 <br><br>
-
-<%= link_to "Add New Currency", new_currency_path %>
+Total Balance: <%= number_to_currency(@currencies.sum { |p| p.price_per * p.amount_owned }) %>
 <br><br>
+<%= link_to "Add New Currency", new_currency_path %>
+
 
