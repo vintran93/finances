@@ -14,7 +14,7 @@
         <th>Total Paid</th>
         <th>Profits/Losses
         <th>Cost per Coin</th>
-        <th>Amount owned</th>
+        <th>Coins owned</th>
       </tr>
     </thead>
     <% profit_loss = 0 %>
@@ -47,7 +47,7 @@
 </table>
 <br>
 <br>
-<strong>Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_loss) %>
+<strong>Total Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_loss) %>
 <br>
 <br>
 <h1>Stocks Portfolio</h1>
@@ -60,6 +60,7 @@
         <th>Current Cost per Share</th>
         <th>Amount Paid</th>
         <th>Shares owned</th>
+        <th>Profits/Losses</th>
       </tr>
     </thead>
     <% profit_losses = 0 %>
@@ -75,8 +76,9 @@
                     <td><%= x['symbol'] %></td>
                     <td><%= number_to_currency(x['price']) %></td>
                     <td><%= number_to_currency(currency.price_per * currency.amount_owned) %></td>
-                    <td><%= currency.amount_owned %></td>
-                    <% profit_losses = (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
+                    <td><%= number_to_currency(currency.amount_owned) %></td>
+                    <td><%= number_to_currency((x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned)) %></td>
+                    <% profit_losses += (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
                 <% end %>
             <% end %>
             </tr>
@@ -86,7 +88,7 @@
 </table>
 <br>
 <br>
-<strong>Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_losses) %>
+<strong>Total Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_losses) %>
 <br>
 <br>
 <%= link_to 'New Currency', new_currency_path, class: "btn btn-default" %>

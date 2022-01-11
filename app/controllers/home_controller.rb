@@ -8,8 +8,6 @@ class HomeController < ApplicationController
       @response = Net::HTTP.get(@uri)
       @coins = JSON.parse(@response)
       @my_coins = ["BTC", "ETH", "SHIB", "MANA", "CRO"]
-
-      @stockapi = StockQuote::Stock.new(api_key: 'pk_ca9afb4b10db43f78192ce4764e34647')
       
       
 
@@ -28,19 +26,21 @@ class HomeController < ApplicationController
       @response1 = Net::HTTP.get(@uri)
       @search_coin = JSON.parse(@response1)
 
-      @api = "https://financialmodelingprep.com/api/v3/quotes/tsx?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
+      
+      @api = "https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
       # 1d1c39289a199e97b82ab6d6f62bdabb
       @uri2 = URI(@api)
       @response2 = Net::HTTP.get(@uri2)
       @search_stocks = JSON.parse(@response2)
 
-      if params[:symbol] == ""
-        @blank = "Please enter a stock symbol to search."
-      elsif params[:symbol]
-        @stock = StockQuote::Stock.quote(params[:symbol])
-      else
-        @error = "That stock does not exist."
-      end
+      @stock = params[:symbol]
+        if @stock
+          @stock = @stock.upcase
+      end 
+      
+      if @stock == ""
+        @stock = "Please enter a stock symbol to search."
+      end 
 
       @symbol = params[:sym] 
         if @symbol

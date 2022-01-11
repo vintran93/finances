@@ -21,6 +21,7 @@
 <br>
 
 <strong><%= @symbol %></strong>
+<strong><%= @stock %></strong>
 
 <br><br>
 
@@ -43,16 +44,3 @@
     <% end %>
 <% end %>
 
-<% if @stock %>
-  <strong><%= @stock.company_name %></strong><br>
-  <strong><%= @stock.symbol %></strong><br>
-  <strong><%= number_to_currency(@stock.latest_price) %></strong><br>
-  
-  <% elsif @blank %>
-    <%= @blank %>
-  <% end %>
-
-
-  <% if @error %>
-    <%= @error %>
-<% end %>
