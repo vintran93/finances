@@ -35,14 +35,24 @@
 <% end %>
 
 <% if @stock %>
+    <% for x in @search_stocks %>
+        <% if @stock == x['symbol'] %>
+            <strong><%= x['name'] %></strong>: <br><br> 
+           <strong>$ <%= x['price'] %></strong> <br><br>
+        <% end %>
+    <% end %>
+<% end %>
+
+<% if @stock %>
   <strong><%= @stock.company_name %></strong><br>
   <strong><%= @stock.symbol %></strong><br>
   <strong><%= number_to_currency(@stock.latest_price) %></strong><br>
   
-<% elsif @blank %>
-  <%= @blank %>
-<% end %>
+  <% elsif @blank %>
+    <%= @blank %>
+  <% end %>
 
-<% if @error %>
-  <%= @error %>
+
+  <% if @error %>
+    <%= @error %>
 <% end %>

@@ -50,4 +50,46 @@
 <strong>Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_loss) %>
 <br>
 <br>
+<h1>Stocks Portfolio</h1>
+<br/>
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Current Cost per Share</th>
+        <th>Amount Paid</th>
+        <th>Shares owned</th>
+      </tr>
+    </thead>
+    <% profit_losses = 0 %>
+    
+    <tbody>
+        <% @currencies.each do |currency| %>
+            <% if currency.user_id == current_user.id %>
+            <tr>
+            <% for x in @search_stocks %>
+                <% if currency.symbol == x['symbol'] %>
+                    
+                    <td><%= link_to x['name'], currency %></td>
+                    <td><%= x['symbol'] %></td>
+                    <td><%= number_to_currency(x['price']) %></td>
+                    <td><%= number_to_currency(currency.price_per * currency.amount_owned) %></td>
+                    <td><%= currency.amount_owned %></td>
+                    <% profit_losses = (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
+                <% end %>
+            <% end %>
+            </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+<br>
+<br>
+<strong>Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_losses) %>
+<br>
+<br>
 <%= link_to 'New Currency', new_currency_path, class: "btn btn-default" %>
+
+
+
