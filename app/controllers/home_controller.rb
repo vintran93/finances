@@ -8,11 +8,12 @@ class HomeController < ApplicationController
       @response = Net::HTTP.get(@uri)
       @coins = JSON.parse(@response)
       @my_coins = ["BTC", "ETH", "SHIB", "MANA", "CRO"]
-      
-      
 
-
-      #stock = StockQuote::Stock.quote("symbol")
+      @api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
+      @uri2 = URI(@api)
+      @response2 = Net::HTTP.get(@uri2)
+      @search_stocks = JSON.parse(@response2)
+      @my_stocks = ["TSLA", "GME", "FB"]
     end
   
     def about
@@ -25,7 +26,6 @@ class HomeController < ApplicationController
       @uri = URI(@url)
       @response1 = Net::HTTP.get(@uri)
       @search_coin = JSON.parse(@response1)
-
       
       @api = "https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
       # 1d1c39289a199e97b82ab6d6f62bdabb
@@ -33,12 +33,12 @@ class HomeController < ApplicationController
       @response2 = Net::HTTP.get(@uri2)
       @search_stocks = JSON.parse(@response2)
 
-      @stock = params[:symbol]
+      @stock = params[:sym]
         if @stock
           @stock = @stock.upcase
       end 
       
-      if @stock == ""
+      if @stock == "" 
         @stock = "Please enter a stock symbol to search."
       end 
 

@@ -7,38 +7,28 @@
 <br>
 
 <%= form_tag home_search_path, :method => 'POST' do %>
-    <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto Symbol', size: 50 %>
+    <%= text_field_tag 'sym', nil, placeholder: 'Enter Crypto or Stock Symbol', size: 50 %>
     <%= submit_tag 'Lookup Quote' %>
 <% end %>
-
-<br><br>
-
-<%= form_tag home_search_path, :method => 'POST' do %>
-    <%= text_field_tag 'symbol', nil, placeholder: 'Enter Stock Symbol', size: 50 %>
-    <%= submit_tag 'Lookup Quote' %>
-<% end %>
-
-<br>
-
-<strong><%= @symbol %></strong>
-<strong><%= @stock %></strong>
 
 <br><br>
 
 <% if @symbol %>
     <% for x in @search_coin['data'] %>
         <% if @symbol == x['symbol'] %>
-            <strong><%= x['name'] %></strong>: <br><br> 
+            <strong><%= x['name'] %></strong> <br><br> 
            <strong>$ <%= x['quote']['USD']['price'] %></strong> <br><br>
            <strong> Rank: <%= x['cmc_rank'] %></strong> <br><br>
         <% end %>
     <% end %>
+    
 <% end %>
 
 <% if @stock %>
     <% for x in @search_stocks %>
         <% if @stock == x['symbol'] %>
-            <strong><%= x['name'] %></strong>: <br><br> 
+           <strong><%= x['name'] %></strong> <br><br>
+           <strong><%= x['symbol'] %></strong> <br><br>
            <strong>$ <%= x['price'] %></strong> <br><br>
         <% end %>
     <% end %>
