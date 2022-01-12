@@ -31,7 +31,7 @@
                     <td><%= x['quote']['USD']['percent_change_1h'].round(2) %>%</td>
                     <td><%= x['quote']['USD']['percent_change_24h'].round(2)  %>%</td>
                     <td><%= x['quote']['USD']['percent_change_7d'].round(2)  %>%</td>
-                    <td>$<%= x['quote']['USD']['price'].round(2) %></td>
+                    <td>$<%= x['quote']['USD']['price'].round(5) %></td>
                     <td>$<%= (x['quote']['USD']['price'].to_d * currency.amount_owned).round(2) %></td>
                     <td>$<%= (currency.price_per * currency.amount_owned).round(2) %>
                     <td>$<%= ((x['quote']['USD']['price'].to_d * currency.amount_owned) - (currency.price_per * currency.amount_owned)).round(2) %></td>
@@ -76,7 +76,7 @@
                     <td><%= x['symbol'] %></td>
                     <td><%= number_to_currency(x['price']) %></td>
                     <td><%= number_to_currency(currency.price_per * currency.amount_owned) %></td>
-                    <td><%= number_to_currency(currency.amount_owned) %></td>
+                    <td><%= currency.amount_owned %></td>
                     <td><%= number_to_currency((x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned)) %></td>
                     <% profit_losses += (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
                 <% end %>
