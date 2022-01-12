@@ -11,7 +11,7 @@ class CurrenciesController < ApplicationController
 
       @api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
       
-      # 1d1c39289a199e97b82ab6d6f62bdabb
+      #1d1c39289a199e97b82ab6d6f62bdabb
       @uri2 = URI(@api)
       @response2 = Net::HTTP.get(@uri2)
       @search_stocks = JSON.parse(@response2)
