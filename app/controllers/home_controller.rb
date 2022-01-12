@@ -9,7 +9,12 @@ class HomeController < ApplicationController
       @coins = JSON.parse(@response)
       @my_coins = ["BTC", "ETH", "SHIB", "MANA", "CRO"]
 
-      @api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
+      #@api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
+      #@api = "https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=100&apikey=1d1c39289a199e97b82ab6d6f62bdabb"
+      #@api = "https://financialmodelingprep.com/api/v3/quote-short/AAPL?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
+      #@api = "https://financialmodelingprep.com/api/v3/profile/AAPL?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
+      # 1d1c39289a199e97b82ab6d6f62bdabb
+      @api = "https://financialmodelingprep.com/api/v4/company-outlook?symbol=AAPL&apikey=1d1c39289a199e97b82ab6d6f62bdabb"
       @uri2 = URI(@api)
       @response2 = Net::HTTP.get(@uri2)
       @search_stocks = JSON.parse(@response2)
@@ -28,6 +33,7 @@ class HomeController < ApplicationController
       @search_coin = JSON.parse(@response1)
       
       @api = "https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
+      @api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
       # 1d1c39289a199e97b82ab6d6f62bdabb
       @uri2 = URI(@api)
       @response2 = Net::HTTP.get(@uri2)

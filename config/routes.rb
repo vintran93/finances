@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
+  
   get 'home/about'
   get 'home/search'
   get 'currencies/table'
 
-  #get 'currencies/new', to: 'currencies#new', as: 'new_currency'
   post 'currencies/new', to: 'currencies#new', as: 'new_currency'
   get 'currencies', to: 'currencies#index', as: 'currencies'
   get 'currencies/:id/edit', to: 'currencies#edit', as: 'edit_currency'
