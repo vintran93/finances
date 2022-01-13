@@ -1,4 +1,7 @@
 class Currency < ApplicationRecord
+    validates :name, presence: true
+    validates :name, format: { without: /\s/ }
+
     belongs_to :user
 	belongs_to :portfolio
 

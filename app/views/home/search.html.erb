@@ -27,7 +27,7 @@
 <% if @stock %>
     <% for x in @search_stocks %>
         <% if @stock == x['symbol'] %>
-            <strong><%= x['symbol'] %></strong> <br><br>
+           <strong><%= x['symbol'] %></strong> <br><br>
            <strong><%= x['name'] %></strong> <br><br>
            <strong>$ <%= x['price'] %></strong> <br><br>
         <% end %>
