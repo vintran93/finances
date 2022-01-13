@@ -32,7 +32,7 @@ class PortfoliosController < ApplicationController
         if @portfolio.save
           redirect_to @portfolio
         else
-          redirect_to portfolios_path, alert: "That portfolio already exists. Please try again."
+          redirect_to portfolios_path, alert: "Name cannot be blank. Please try again."
         end
     end
   

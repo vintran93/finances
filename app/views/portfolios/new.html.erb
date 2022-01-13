@@ -12,11 +12,12 @@
       </ul>
     </div>
   <% end %>
-  
+
+  <label> Portfolio </label>
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br/>
-  <label> Portfolios: </label>
+  
   <div class="field">
     <%= f.number_field :user_id, value: current_user.id, type: "hidden" %>
   </div>

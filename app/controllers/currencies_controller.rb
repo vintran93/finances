@@ -62,7 +62,7 @@ class CurrenciesController < ApplicationController
         if @currency.save
             redirect_to @currency
         else
-            render :new
+            render :new, alert: "Please try again."
         end
     end
   
