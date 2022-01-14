@@ -67,16 +67,3 @@ class PortfoliosController < ApplicationController
 end
 
 
-#        <% @currencies.each do |currency| %>
-#<% if currency.user_id == current_user.id %>
-       
-#<% if currency.symbol == "" %>
-#    <% @blank = 'N/A' %>
-
-#<% elsif currency.symbol %>
-#    <% @currency = StockQuote::Stock.quote(currency.symbol) %>
-##<% if !currency.symbol %>
-#    <% @error = "N/A" %>
-#<% end %>
-
-#<% end %>
