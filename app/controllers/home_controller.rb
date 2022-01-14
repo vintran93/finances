@@ -7,8 +7,6 @@ class HomeController < ApplicationController
       @uri = URI(@url)
       @response = Net::HTTP.get(@uri)
       @coins = JSON.parse(@response)
-      @my_coins = ["BTC", "ETH", "SHIB", "MANA", "CRO"]
-
       #@api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
       #@api = "https://financialmodelingprep.com/api/v3/stock-screener?marketCapMoreThan=1000000000&betaMoreThan=1&volumeMoreThan=10000&sector=Technology&exchange=NASDAQ&dividendMoreThan=0&limit=100&apikey=1d1c39289a199e97b82ab6d6f62bdabb"
       #@api = "https://financialmodelingprep.com/api/v3/quote-short/AAPL?apikey=1d1c39289a199e97b82ab6d6f62bdabb"
@@ -18,7 +16,6 @@ class HomeController < ApplicationController
       @uri2 = URI(@api)
       @response2 = Net::HTTP.get(@uri2)
       @search_stocks = JSON.parse(@response2)
-      @my_stocks = ["TSLA", "GME", "FB"]
     end
   
     def about
