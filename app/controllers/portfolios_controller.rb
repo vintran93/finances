@@ -10,7 +10,6 @@ class PortfoliosController < ApplicationController
             @portfolios = @portfolio.currencies
           end
         else
-          
           @portfolios = Portfolio.where(user_id: current_user.id)
         end
         else
