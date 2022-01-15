@@ -16,7 +16,8 @@
 <% if @symbol %>
     <% for x in @search_coin['data'] %>
         <% if @symbol == x['symbol'] %>
-            <strong><%= x['name'] %></strong> <br><br> 
+           <strong><%= x['name'] %></strong> <br><br>
+           <strong><%= x['symbol'] %></strong> <br><br>
            <strong>$ <%= x['quote']['USD']['price'] %></strong> <br><br>
            <strong> Rank: <%= x['cmc_rank'] %></strong> <br><br>
         <% end %>
