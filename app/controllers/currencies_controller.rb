@@ -8,9 +8,7 @@ class CurrenciesController < ApplicationController
       @uri = URI(@url)
       @response = Net::HTTP.get(@uri)
       @search_coin = JSON.parse(@response)
-
       @api = 'https://financialmodelingprep.com/api/v3/stock/list?apikey=1d1c39289a199e97b82ab6d6f62bdabb'
-      
       #1d1c39289a199e97b82ab6d6f62bdabb
       @uri2 = URI(@api)
       @response2 = Net::HTTP.get(@uri2)
@@ -19,41 +17,18 @@ class CurrenciesController < ApplicationController
 
     def index
       if user_signed_in?
-        if params[:portfolio_id]
-          @portfolio = Portfolio.find_by(id: params[:portfolio_id])
-          if @portfolio.nil?
-            redirect_to portfolios_path, alert: "Portfolio not found"
-          else
-            @currencies = @portfolio.currencies
-          end
-        else
-          @currencies = Currency.where(user_id: current_user.id)
-        end
+        @currencies = Currency.where(user_id: current_user.id)
       else
         redirect_to new_user_session_url, alert: "You must sign in first."
       end
-
-      
     end
   
     def show
-      if params[:portfolio_id]
-        @portfolio = Portfolio.find_by(id: params[:portfolio_id])
-        @currency = @portfolio.currencies.find_by(id: params[:id])
-        if @currency.nil?
-          redirect_to portfolio_currencies_path(@portfolio), alert: "Currency not found"
-        end
-      else
-        @currency = Currency.find(params[:id])
-      end
+      @currency = Currency.find(params[:id])
     end
   
     def new
-      if params[:portfolio_id] && Portfolio.empty(params[:portfolio_id])
-        redirect_to portfolios_path, alert: "Portfolio not found"
-      else
-        @currency = Currency.new(portfolio_id: params[:portfolio_id])
-      end
+      @currency = Currency.new(portfolio_id: params[:portfolio_id])
     end
   
     def create
@@ -67,24 +42,12 @@ class CurrenciesController < ApplicationController
     end
   
     def edit
-      if params[:portfolio_id]
-        portfolio = Portfolio.find_by(id: params[:artist_id])
-        if portfolio.nil?
-          redirect_to portfolios_path, alert: "Portfolio not found"
-        else
-          @currency = portfolio.currencies.find_by(id: params[:id])
-          redirect_to portfolio_currencies_path(portfolio), alert: "Currency not found" if @currency.nil?
-        end
-      else
-        @currency = Currency.find(params[:id])
-      end
+      @currency = Currency.find(params[:id])
     end
   
     def update
       @currency = Currency.find(params[:id])
-  
       @currency.update(currency_params)
-  
       if @currency.save
         redirect_to @currency
       else
