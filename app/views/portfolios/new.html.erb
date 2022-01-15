@@ -4,9 +4,9 @@
 <%= form_for @portfolio do |f| %>
   <% if @portfolio.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@portfolio .errors.count, "error") %> prohibited this item from being saved:</h2>
+      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this item from being saved:</h2>
       <ul>
-        <% @portfolio .errors.each do |error| %>
+        <% @portfolio.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>

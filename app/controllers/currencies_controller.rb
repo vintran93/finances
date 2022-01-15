@@ -35,9 +35,9 @@ class CurrenciesController < ApplicationController
         @currency = Currency.new(currency_params)
         @currency.user_id = current_user.id
         if @currency.save
-            redirect_to @currency
+          redirect_to @currency
         else
-            render :new, alert: "Please try again."
+          render :new
         end
     end
   

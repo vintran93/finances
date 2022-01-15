@@ -21,7 +21,7 @@ class PortfoliosController < ApplicationController
         if @portfolio.save
           redirect_to @portfolio
         else
-          redirect_to portfolios_path, alert: "Name cannot be blank. Please try again."
+          render :new
         end
     end
   
