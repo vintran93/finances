@@ -1,18 +1,8 @@
 class PortfoliosController < ApplicationController
-    
     def index
       if user_signed_in?
-        if params[:portfolio_id]
-          @portfolio = Portfolio.find_by(id: params[:portfolio_id])
-          if @portfolio.nil?
-            redirect_to portfolios_path, alert: "Portfolio not found"
-          else
-            @portfolios = @portfolio.currencies
-          end
-        else
           @portfolios = Portfolio.where(user_id: current_user.id)
-        end
-        else
+      else
           redirect_to new_user_session_url, alert: "You must sign in first."
       end
     end
@@ -41,9 +31,7 @@ class PortfoliosController < ApplicationController
   
     def update
       @portfolio = Portfolio.find(params[:id])
-  
       @portfolio.update(portfolio_params)
-  
       if @portfolio.save
         redirect_to @portfolio
       else
