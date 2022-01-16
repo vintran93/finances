@@ -6,4 +6,3 @@ class Portfolio < ApplicationRecord
 	has_many :users, through: :currencies
 end
 
-# https://boringrails.com/tips/rails-unique-scope

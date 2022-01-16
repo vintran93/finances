@@ -1,6 +1,6 @@
 module PortfoliosHelper
     def display_portfolio(currency)
-        currency.portfolio.nil? ? link_to("Add A New Portfolio", edit_currency_path(currency)) : link_to(currency.portfolio_name, portfolio_path(currency.portfolio))
+        link_to(currency.portfolio_name, portfolio_path(currency.portfolio))
     end
   
     # Display dropdown of portfolios, with name if editing through nested
