@@ -40,13 +40,10 @@ class PortfoliosController < ApplicationController
     end
   
     def destroy
-      if @portfolio = Portfolio.find(params[:id])
-        @portfolio.destroy
-        flash[:notice] = "Portfolio deleted."
-        redirect_to portfolios_path
-      else
-        redirect_to portfolios_path alert: "You cannot delete this item until there are no currencies."
-      end
+      @portfolio = Portfolio.find(params[:id])
+      @portfolio.destroy
+      flash[:notice] = "Portfolio deleted."
+      redirect_to portfolios_path
     end
   
     private
