@@ -64,7 +64,6 @@ class CurrenciesController < ApplicationController
   
     private
     
-
     def currency_params
       params.require(:currency).permit(:name, :portfolio_id, :portfolio_name, :symbol, :price_per, :amount_owned)
     end

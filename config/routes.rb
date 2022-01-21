@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   
   get 'home/about'
   get 'home/search'
+  post '/home/search' => 'home/search'
   get 'currencies/table'
 
+  get 'currencies/new', to: 'currencies#new', as: 'new'
   post 'currencies/new', to: 'currencies#new', as: 'new_currency'
   get 'currencies', to: 'currencies#index', as: 'currencies'
   get 'currencies/:id/edit', to: 'currencies#edit', as: 'edit_currency'
@@ -16,7 +18,7 @@ Rails.application.routes.draw do
   put 'currencies/:id', to: 'currencies#update'
   delete '/currencies/:id', to: 'currencies#destroy'
 
-  post '/home/search' => 'home/search'
+  
 
   post 'portfolios/new', to: 'portfolios#new', as: 'new_portfolio'
   get 'portfolios', to: 'portfolios#index', as: 'portfolios'

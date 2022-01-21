@@ -13,9 +13,9 @@ module PortfoliosHelper
       end
     end
   
-    # Display name if editing through nested
+    # Display name if editing through nested on the currencies form
     def display_name(currency)
-      if currency.portfolio
+      if currency.portfolio 
         currency.portfolio.name
       end
     end
