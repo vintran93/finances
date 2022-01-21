@@ -5,17 +5,17 @@ module PortfoliosHelper
     end
   
     # Display dropdown of portfolio if editing through nested
-    def portfolio_select(currency)
-      if currency.portfolio
+    def portfolio_select(currency, path)
+      if currency.portfolio && path 
         hidden_field_tag "currency[portfolio_id]", currency.portfolio_id
       else
         select_tag "currency[portfolio_id]", options_from_collection_for_select(Portfolio.where(user_id: current_user.id), :id, :name)
       end
     end
   
-    # Display name if editing through nested on the currencies form
-    def display_name(currency)
-      if currency.portfolio 
+    # Display name if editing through nested
+    def display_name(currency, path)
+      if currency.portfolio && path
         currency.portfolio.name
       end
     end
