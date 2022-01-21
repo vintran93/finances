@@ -60,6 +60,7 @@
         <th>Current Cost per Share</th>
         <th>Amount Paid</th>
         <th>Shares owned</th>
+        <th>Price When Bought</th>
         <th>Profits/Losses</th>
       </tr>
     </thead>
@@ -71,12 +72,12 @@
             <tr>
             <% for x in @search_stocks %>
                 <% if currency.symbol == x['symbol'] %>
-                    
                     <td><%= link_to x['name'], currency %></td>
                     <td><%= x['symbol'] %></td>
                     <td><%= number_to_currency(x['price']) %></td>
                     <td><%= number_to_currency(currency.price_per * currency.amount_owned) %></td>
                     <td><%= currency.amount_owned %></td>
+                    <td><%= number_to_currency(currency.price_per) %></td>
                     <td><%= number_to_currency((x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned)) %></td>
                     <% profit_losses += (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
                 <% end %>

@@ -28,7 +28,7 @@ class CurrenciesController < ApplicationController
     end
   
     def new
-      @currency = Currency.new(portfolio_id: params[:portfolio_id])
+      @currency = Currency.new
     end
   
     def create

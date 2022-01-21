@@ -17,7 +17,7 @@ gem 'json'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem "rename"
 gem 'sqlite3', '~> 1.4'
-gem "stock_quote", '~> 3.0.0'
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
