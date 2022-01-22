@@ -12,10 +12,13 @@ Rails.application.routes.draw do
   post 'currencies/new', to: 'currencies#new', as: 'new_currency'
 
   get 'currencies', to: 'currencies#index', as: 'currencies'
-  #post 'currencies', to: 'currencies#index', as: 'currencies'
+  #post 'currencies', to: 'currencies#index', as: 'currencies_index'
 
-  post 'currencies/sorted', to: 'currencies#sorted', as: 'currencies_sort'
-  get 'currencies/sorted', to: 'currencies#sorted', as: 'currencies_sorted'
+  post 'currencies/sorted', to: 'currencies#sorted', as: 'currencies_sorted'
+  get 'currencies/sorted', to: 'currencies#sorted', as: 'currencies_sort'
+
+  post 'currencies/sorted_desc', to: 'currencies#sorted_desc', as: 'currencies_sorted_descending'
+  get 'currencies/sorted_desc', to: 'currencies#sorted_desc', as: 'currencies_sorted_desc'
 
   get 'currencies/:id/edit', to: 'currencies#edit', as: 'edit_currency'
   get 'currencies/:id', to: 'currencies#show', as: 'currency'

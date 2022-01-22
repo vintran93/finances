@@ -30,6 +30,14 @@ class CurrenciesController < ApplicationController
         redirect_to new_user_session_url, alert: "You must sign in first."
       end
     end
+
+    def sorted_desc
+      if user_signed_in?
+        @currencies = Currency.where(user_id: current_user.id)
+      else
+        redirect_to new_user_session_url, alert: "You must sign in first."
+      end
+    end
     
     def show
       @currency = Currency.find(params[:id])
