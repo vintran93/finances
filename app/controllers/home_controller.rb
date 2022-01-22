@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
     def index
+      #byebug
       require 'net/http'
       require 'json'
       @url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=3faaac7a-4b4d-44d3-9001-1cb1e966e9ce'

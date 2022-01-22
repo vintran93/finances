@@ -6,7 +6,7 @@ class CreateCurrencies < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.decimal :price_per
       t.decimal :amount_owned
-
+     
       t.timestamps
     end
   end
