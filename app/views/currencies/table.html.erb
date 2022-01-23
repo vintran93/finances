@@ -71,7 +71,7 @@
             <% if currency.user_id == current_user.id %>
             <tr>
             <% for x in @search_stocks %>
-                <% if currency.symbol == x['symbol'] %>
+                <% if currency.symbol == x['symbol'] && x['name'].include?(currency.name) %>
                     <td><%= link_to x['name'], currency %></td>
                     <td><%= x['symbol'] %></td>
                     <td><%= number_to_currency(x['price']) %></td>
@@ -80,7 +80,7 @@
                     <td><%= number_to_currency(currency.price_per) %></td>
                     <td><%= number_to_currency((x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned)) %></td>
                     <% profit_losses += (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
-                <% end %>
+                <% end %> 
             <% end %>
             </tr>
             <% end %>
