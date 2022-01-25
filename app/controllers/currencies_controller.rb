@@ -31,7 +31,7 @@ class CurrenciesController < ApplicationController
       end
     end
 
-    def sorted_desc
+    def sorted_descending
       if user_signed_in?
         @currencies = Currency.where(user_id: current_user.id)
       else
