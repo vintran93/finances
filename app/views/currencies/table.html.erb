@@ -1,0 +1,99 @@
+<h1>Cryptocurrencies Portfolio</h1>
+<br/>
+<table class="table table-hover table-bordered table-striped">
+    <thead class='thead-dark'>
+      <tr>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Rank</th>
+        <th>1 HR</th>
+        <th>24 HR</th>
+        <th>7D</th>
+        <th>Current Price</th>
+        <th>Total Value</th>
+        <th>Total Paid</th>
+        <th>Profits/Losses
+        <th>Cost per Coin</th>
+        <th>Coins owned</th>
+      </tr>
+    </thead>
+    <% profit_loss = 0 %>
+    
+    <tbody>
+        <% @currencies.each do |currency| %>
+            <% if currency.user_id == current_user.id %>
+            <tr>
+            <% for x in @search_coin['data'] %>
+                <% if currency.symbol == x['symbol'] %>
+                    <td><%= link_to x['name'], currency %></td>
+                    <td><%= currency.symbol %></td>
+                    <td><%= x["cmc_rank"]%></td>
+                    <td><%= x['quote']['USD']['percent_change_1h'].round(2) %>%</td>
+                    <td><%= x['quote']['USD']['percent_change_24h'].round(2)  %>%</td>
+                    <td><%= x['quote']['USD']['percent_change_7d'].round(2)  %>%</td>
+                    <td>$<%= x['quote']['USD']['price'].round(5) %></td>
+                    <td>$<%= (x['quote']['USD']['price'].to_d * currency.amount_owned).round(2) %></td>
+                    <td>$<%= (currency.price_per * currency.amount_owned).round(2) %>
+                    <td>$<%= ((x['quote']['USD']['price'].to_d * currency.amount_owned) - (currency.price_per * currency.amount_owned)).round(2) %></td>
+                    <td>$<%= currency.price_per %></td>
+                    <% profit_loss += ((x['quote']['USD']['price'].to_d * currency.amount_owned) - (currency.price_per * currency.amount_owned)).round(2) %>
+                    <td><%= (currency.amount_owned).round(2) %></td>
+                <% end %>
+            <% end %>
+            </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+<br>
+<br>
+<strong>Total Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_loss) %>
+<br>
+<br>
+<h1>Stocks Portfolio</h1>
+<br/>
+<table class="table table-hover table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Symbol</th>
+        <th>Current Cost per Share</th>
+        <th>Amount Paid</th>
+        <th>Shares owned</th>
+        <th>Price When Bought</th>
+        <th>Profits/Losses</th>
+      </tr>
+    </thead>
+    <% profit_losses = 0 %>
+    
+    <tbody>
+        <% @currencies.each do |currency| %>
+            <% if currency.user_id == current_user.id %>
+            <tr>
+            <% for x in @search_stocks %>
+                <% if currency.symbol == x['symbol'] && x['name'].include?(currency.name) %>
+                    <td><%= link_to x['name'], currency %></td>
+                    <td><%= x['symbol'] %></td>
+                    <td><%= number_to_currency(x['price']) %></td>
+                    <td><%= number_to_currency(currency.price_per * currency.amount_owned) %></td>
+                    <td><%= currency.amount_owned %></td>
+                    <td><%= number_to_currency(currency.price_per) %></td>
+                    <td><%= number_to_currency((x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned)) %></td>
+                    <% profit_losses += (x['price'] * currency.amount_owned) - (currency.price_per * currency.amount_owned) %>
+                <% end %> 
+            <% end %>
+            </tr>
+            <% end %>
+        <% end %>
+    </tbody>
+</table>
+<br>
+<br>
+<strong>Total Portfolio Profits/Losses:</strong> <%= number_to_currency(profit_losses) %>
+<br>
+<br>
+<%= button_to 'Add A New Currency', new_currency_path, class: "btn btn-default" %>
+<br>
+<br>
+<br>
+<br>

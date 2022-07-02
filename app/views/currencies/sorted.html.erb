@@ -1,0 +1,14 @@
+<h2><strong> All Currencies</strong></h2>
+<h3><ol>
+<% @currencies.sort_by {|c| c.price_per * c.amount_owned }.each do |currency| %>
+  <li><%= display_portfolio(currency) %> - <%= link_to currency.name, currency_path(currency) %> = <%= (number_to_currency(currency.price_per * currency.amount_owned)) %> | <%= currency.created_at.in_time_zone("Central Time (US & Canada)").strftime("%B %d, %Y %I:%M %p") %></li><br> 
+<% end %> 
+</ol></h3>
+
+<h2> <strong> Total Balance: <%= number_to_currency(@currencies.sum { |c| c.price_per * c.amount_owned }) %></strong> </h2>
+<br><br><br><br>
+
+
+<%= button_to "Add A New Currency", new_currency_path, class: "btn-group btn-group-justified" %> <br><br>
+
+<%= button_to "Sort by Descending Order", currencies_sorted_descending_path, class: "btn-group btn-group-justified" %> <br><br>

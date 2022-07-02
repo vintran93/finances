@@ -1,0 +1,10 @@
+<h2><strong> Portfolios</strong></h2>
+
+  <h3> <ol>
+  <% @portfolios.each do |portfolio| %>
+    <li> <%= link_to portfolio.name, portfolio_path(portfolio) %></li>
+  <br>
+  <% end %>
+  </ol></h3>
+
+<%= button_to "Add A New Portfolio", new_portfolio_path, class: "btn-group btn-group-justified" %>

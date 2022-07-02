@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Investing</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  </head>
+  <body>
+  <%= render "home/navbar" %>
+
+  <div class="container" >
+    <%= render "home/flash" %>
+    <%= yield %>
+  </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
+  <footer class="branding">
+        <small>&copy; Copyright <strong> Vincent Tran 2022 </strong></small>  
+  </footer>
+  </body>
+</html>
