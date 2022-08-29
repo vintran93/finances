@@ -6,7 +6,7 @@
 </ol></h3>
 
 <h2> <strong> Total Balance: <%= number_to_currency(@currencies.sum { |c| c.price_per * c.amount_owned }) %></strong> </h2>
-<br><br><br><br>
+<br><br>
 
 
 <%= button_to "Add A New Currency", new_currency_path, class: "btn-group btn-group-justified" %> <br><br>
