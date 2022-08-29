@@ -10,11 +10,11 @@ A Ruby on Rails application that uses the principles of CRUD and Restful Routing
 
 ## Built With
 
-HTML/CSS
-Bootstrap
-Ruby on Rails
-Heroku for Live version deployment
-Devise Gem
+* HTML/CSS
+*  Bootstrap
+*  Ruby on Rails
+*  Heroku for Live version deployment
+*  Devise Gem
 
 ## Possible Future Updates
 Stocks/Cryptocurrencies Graphs and Pie charts
