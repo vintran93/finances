@@ -17,8 +17,8 @@ A Ruby on Rails application that uses the principles of CRUD and Restful Routing
 *  Devise Gem
 
 ## Possible Future Updates
-Stocks/Cryptocurrencies Graphs and Pie charts
-News forecast on stocks/cryptos
+* Stocks/Cryptocurrencies Graphs and Pie charts
+* News forecast on stocks/cryptos
 
 ## License
 
