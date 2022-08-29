@@ -1,6 +1,4 @@
 <h3> Portfolio: <%= display_portfolio(@currency) %></h3>
-
-  
   <h1> Currency: <%=  @currency.name %></h1>
   <h1> Price per: $ <%= (@currency.price_per) %></h1>
   <h1> Amount Owned: <%= @currency.amount_owned %></h1>
@@ -8,9 +6,9 @@
 
 <div>
   <div class="panel-footer"></div>
-  <%= link_to 'Edit', edit_currency_path(@currency) %> |
-  <%= link_to 'Back to Portfolios', portfolios_path %> |
-  <%= link_to 'Delete', currency_path(@currency), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= button_to 'Edit', edit_currency_path(@currency) %> |
+  <%= button_to 'Back to Portfolios', portfolios_path %> |
+  <%= button_to 'Delete', currency_path(@currency), method: :delete %>
 </div>
 
 <br>
