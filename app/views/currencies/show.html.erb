@@ -6,12 +6,12 @@
 
 <div>
   <div class="panel-footer"></div>
-  <%= button_to 'Edit', edit_currency_path(@currency) %> |
-  <%= button_to 'Back to Portfolios', portfolios_path %> |
-  <%= button_to 'Delete', currency_path(@currency), method: :delete %>
+  <br/>
+  <%= link_to 'Edit', edit_currency_path(@currency), class: "btn btn-secondary" %> <br/>
+  <%= button_to 'Back to Portfolios', portfolios_path, class: "btn btn-secondary" %> <br/>
+  <%= button_to 'Delete', currency_path(@currency), method: :delete, class: "btn btn-danger" %>
 </div>
 
 <br>
-<br>
 
-<%= link_to 'New Currency', new_currency_path, class: "btn btn-default" %>
+<%= link_to 'New Currency', new_currency_path, class: "btn btn-primary" %>

@@ -8,7 +8,7 @@
 <div>
   <div class="panel-footer"></div>
   <br/>
-  <%= button_to 'Edit', edit_portfolio_path(@portfolio) %> <br/>
-  <%= button_to 'Back to Portfolios', portfolios_path %> <br/>
-  <%= button_to 'Delete', portfolio_path(@portfolio), method: :delete %>
+  <%= button_to 'Edit', edit_portfolio_path(@portfolio), class: "btn btn-secondary" %> <br/>
+  <%= button_to 'Back to Portfolios', portfolios_path, class: "btn btn-secondary" %> <br/>
+  <%= button_to 'Delete', portfolio_path(@portfolio), method: :delete, class: "btn btn-danger" %>
 </div>
