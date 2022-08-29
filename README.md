@@ -22,4 +22,4 @@ A Ruby on Rails application that uses the principles of CRUD and Restful Routing
 
 ## License
 
-This project is [MIT](https://opensource.org/licenses/MIT) licensed.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed @ [vintran93]
