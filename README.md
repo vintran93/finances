@@ -14,6 +14,11 @@ HTML/CSS
 Bootstrap
 Ruby on Rails
 Heroku for Live version deployment
+Devise Gem
+
+## Possible Future Updates
+Stocks/Cryptocurrencies Graphs and Pie charts
+News forecast on stocks/cryptos
 
 ## License
 
