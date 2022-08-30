@@ -1,6 +1,6 @@
 ## Finances
 
-A Ruby on Rails application that uses the principles of CRUD and RESTful routing to allow users to manage their finances and to diversify their portfolios. The user can post all of their currencies and sort them by how much they own or the type of currency it is. The user can search currencies by stock or cryptocurrency tick symbols and find out their profits and losses. A user must sign up and create an account in order to submit their finances.
+A Ruby on Rails application that uses the principles of CRUD and RESTful routing to allow users to manage their finances and to diversify their portfolios. The user can post all of their currencies and sort them by how much they own or the type of currency it is. The user can search currencies by stock or cryptocurrency ticker symbols and find out their profits and losses. A user must sign up and create an account in order to submit their finances.
 
 ![giphy-finances](https://user-images.githubusercontent.com/78582898/187327063-74abada3-3216-4e8e-9946-d0b8335a9c22.gif)
 
