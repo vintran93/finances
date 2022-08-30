@@ -10,7 +10,7 @@ A Ruby on Rails application that uses the principles of CRUD and Restful Routing
 
 ## Built With
 
-*  Bootstrap
+*  Bootstrap CSS Framework
 *  Ruby on Rails
 *  Heroku for Live version deployment
 *  Devise Gem
