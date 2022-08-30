@@ -20,6 +20,10 @@ A Ruby on Rails application that uses the principles of CRUD and RESTful routing
 * Stocks/Cryptocurrencies Graphs and Pie charts
 * News forecast on stocks/cryptos
 
+## Show some support
+
+Give a ⭐️ if you like this project!
+
 ## License
 
 This project is [MIT](https://opensource.org/licenses/MIT) licensed @ [vintran93]
