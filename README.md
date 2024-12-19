@@ -15,6 +15,7 @@ A Ruby on Rails application that uses the principles of CRUD and RESTful routing
 *  Ruby on Rails
 *  Heroku for Live version deployment
 *  Devise Gem
+*  Made as a part of Ruby on Rails: Stock Market App Udemy Course
 
 ## Possible Future Updates
 * Stocks/Cryptocurrencies Graphs and Pie charts
